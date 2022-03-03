@@ -14,6 +14,10 @@ const TodoList = () => {
         setTodos([...todos, todoEntry]);
     }
 
+    const deleteEntry = (props, index) => {
+        props.setTodos(props.todos.filter((todoEntry, i) => i !== index));
+    }
+
     return (
         <div>
             Add todo:
@@ -24,7 +28,7 @@ const TodoList = () => {
                 <input type="text" name="date" value={todoEntry.date} onChange={inputChanged} />
                 <input type="submit" value="Add" />
             </form>
-            <TodoTable todos={todos} setTodos={setTodos} />
+            <TodoTable todos={todos} setTodos={setTodos} deleteEntry={deleteEntry} />
         </div>
     )
 }

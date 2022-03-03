@@ -1,11 +1,6 @@
 import React from 'react';
 
 const TodoTable = (props) => {
-
-    const deleteEntry = (props, index) => {
-        props.setTodos(props.todos.filter((todoEntry, i) => i !== index));
-    }
-
     return (
         <div>
             <table>
@@ -15,7 +10,7 @@ const TodoTable = (props) => {
                     </tr>
                     { props.todos.map((item, index) =>
                     <tr key={index}><td>{item.date}</td><td>{item.description}</td>
-                    <td><button onClick={() => deleteEntry(props, index)}>Delete</button></td></tr>)}
+                    <td><button onClick={() => props.deleteEntry(props, index)}>Delete</button></td></tr>)}
                 </tbody>
             </table>
         </div>
